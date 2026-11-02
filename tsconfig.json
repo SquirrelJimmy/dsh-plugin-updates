@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2022", "DOM"],
+    "types": ["node"],
+
+    // Both halves sit on a module-loader boundary: the client half is handed an
+    // untyped `require` and the host half an untyped cordis Context, so most
+    // values are `any` by construction. Everything checkable without annotating
+    // those boundaries is enabled; full `strict` would be ~160 annotations that
+    // carry no behaviour.
+    "strict": false,
+    "noImplicitAny": false,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "skipLibCheck": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src"]
+}

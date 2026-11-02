@@ -1,0 +1,73 @@
+{
+  "name": "dsh-plugin-updates",
+  "version": "0.8.0",
+  "type": "module",
+  "description": "Update manager tab for installed DSH plugins: check for updates, upgrade one, upgrade all, queue upgrades behind a restart.",
+  "license": "MIT",
+  "author": "SquirrelJimmy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SquirrelJimmy/dsh-plugin-updates.git"
+  },
+  "homepage": "https://github.com/SquirrelJimmy/dsh-plugin-updates",
+  "bugs": {
+    "url": "https://github.com/SquirrelJimmy/dsh-plugin-updates/issues"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "dsh-plugin",
+    "plugin",
+    "upgrade",
+    "update",
+    "pnpm",
+    "cordis"
+  ],
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.1-rc.5"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./client": "./dist/client.js",
+    "./package.json": "./package.json",
+    "./icon": "./icon.svg",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "dist",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "locale",
+    "icon.svg"
+  ],
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "node build.mjs",
+    "test": "node test/upgrade-state.cjs",
+    "check": "npm run typecheck && npm run build && npm test",
+    "prepublishOnly": "npm run check"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-plugin-manager"
+      ]
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "esbuild": "^0.25.10",
+    "typescript": "^5.9.3"
+  },
+  "icon": "./icon.svg"
+}

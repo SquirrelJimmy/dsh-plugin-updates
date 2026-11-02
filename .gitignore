@@ -1,0 +1,9 @@
+node_modules/
+*.bak
+*.log
+.DS_Store
+.DS_Store?
+.idea/
+.vscode/
+*.tmp
+plugin-updates-state.json

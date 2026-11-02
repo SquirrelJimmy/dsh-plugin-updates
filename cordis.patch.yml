@@ -1,0 +1,7 @@
+# Mounts the host half of dsh-plugin-updates into the profile.
+# The host half serves /plugin-updates (state, check, restart queue) on the
+# built-in webServer; the browser bundle is the UI and talks to the built-in
+# pluginManager remote service for every mutation.
+- insert:
+    - id: plugin-updates
+      name: 'dsh-plugin-updates'

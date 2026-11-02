@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Plugin Updates",
+    "description": "Check and upgrade installed DSH plugins: upgrade all, upgrade one, roll back failures, finish after a restart."
+  }
+}
