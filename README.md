@@ -117,6 +117,7 @@
 | `package.json` | 包声明：`dsh.bundle.patch` + `dsh.client` + 构建脚本 |
 | `cordis.patch.yml` | 往 profile 插入本包（`id: dsh-plugin-updates`） |
 | `test/upgrade-state.cjs` | 用真实 `dist/client.js` 跑行状态机的迷你 React 桩测试 |
+| `test/host-routes.cjs` | 用桩 ctx 挂载 `dist/index.js`：路由/鉴权头/版本注入/`/policy` 校验/队列续做/预检 |
 | `CHANGELOG.md` | 版本改动 |
 | `LICENSE` | MIT |
 | `README.md` | 本文档 |
@@ -159,7 +160,7 @@ npm install --include=dev   # 本机 npm 默认 omit=dev，必须显式带上
 npm run check               # typecheck + build + test（提交前跑这个）
 npm run typecheck           # tsc -p tsconfig.json（noEmit）
 npm run build               # esbuild → dist/index.js + dist/client.js
-npm test                    # node test/upgrade-state.cjs
+npm test                    # 客户端行状态机 + 宿主端路由/队列/预检
 ```
 
 **版本号只写一处**：`package.json` 的 `version` 由 `build.mjs` 通过 esbuild 的

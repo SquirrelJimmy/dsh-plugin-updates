@@ -38,3 +38,5 @@
 - `tsconfig.json`：开启 `strictFunctionTypes`、`strictBindCallApply`、
   `noFallthroughCasesInSwitch`（`strict` 仍关闭，理由见文件内注释）。
 - `installedRoots()` 不再回退到 `process.cwd()`，只用 profile 目录与 `DSH_PROFILE_DIR`。
+- 新增宿主端测试 `test/host-routes.cjs`（路由、鉴权头、版本注入、`/policy` 校验、
+  队列续做、预检被拒不动已装版本），并入 `npm test` / `npm run check`。

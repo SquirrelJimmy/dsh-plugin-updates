@@ -46,7 +46,7 @@
   "scripts": {
     "typecheck": "tsc -p tsconfig.json",
     "build": "node build.mjs",
-    "test": "node test/upgrade-state.cjs",
+    "test": "node test/upgrade-state.cjs && node test/host-routes.cjs",
     "check": "npm run typecheck && npm run build && npm test",
     "prepublishOnly": "npm run check"
   },
